@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\demoCode_frameCutting.c">
+    <ClCompile Include="demoCode_frameCutting.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\main.c">
+    <ClCompile Include="main.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\testFunctions.h">
+    <ClInclude Include="testFunctions.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>

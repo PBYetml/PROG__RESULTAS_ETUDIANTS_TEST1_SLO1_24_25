@@ -104,14 +104,14 @@ int AssembyDatas(int8_t voltageData, int8_t currentData, int8_t powerData, int8_
 ----------------------------------------------------------------------------------- */
 void DatasCutting(int frame)
 {
-	int8_t Tension = frame >> 24;
-	int8_t Courant = frame >> 16;
-	int8_t Puissance = frame >> 8;
-	int8_t Resistance = frame;
+	int8_t Tension = frame >> 24;	// la valeur de Tension est celle de la 24èmme au 32emme bit de frame
+	int8_t Courant = frame >> 16;	// la valeur de Courant est celle de la 16èmme au 23emme bit de frame
+	int8_t Puissance = frame >> 8;  // la valeur de Puissance est celle de la 8èmme au 15emme bit de frame
+	int8_t Resistance = frame;		// la valeur de Resistance est celle de la 1ere au 7emme bit de frame
 
 	//-- display the different frame value --//
-	printf("-- valeur voltage :  %d \n", Tension);
-	printf("-- valeur current : %d \n", Courant);
-	printf("-- valeur power :  %d \n", Puissance);
-	printf("-- valeur resistor :  %d \n", Resistance);
+	printf("-- valeur voltage :  %d \n", Tension);		// afficher la valeur de la variable Tension
+	printf("-- valeur current : %d \n", Courant);		// afficher la valeur de la variable Courant
+	printf("-- valeur power :  %d \n", Puissance);		// afficher la valeur de la variable Puissance
+	printf("-- valeur resistor :  %d \n", Resistance);	// afficher la valeur de la variable Resistance
 }
