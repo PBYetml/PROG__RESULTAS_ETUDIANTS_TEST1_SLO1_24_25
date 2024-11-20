@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="alerabald" created="2024-10-31" changedby="alerabald" changed="2024-11-20" origin="Structorizer 3.30-10" text="&#34;Capteur de température&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<forever comment="" color="ffffff" disabled="0">
+			<qForever>
+				<instruction text="&#34;constante capteur exterieur la température minimum = -50 degré&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;constante capteur exterieur la température maximum = 150 degré&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;pas entier(float), non signé, 4 bit, capteur exterieur tension = depent de la température //la tension est linéaire entre le maximume et le minimume et si elle est à tension maximum (2.5) = température minimum et si elle a tension minimume (0.5V) = température maximume&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;pas entier(float), non signé, 4 bit, capteur exterieur tension maximum = température minimum&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;pas entier(float), non signé, 4 bit, delta température&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;constante capteur interieur la température minimum = -55 degré&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;constante capteur interieur la température maximum = 125 degré&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;pas entier, non signé, 4 bit, capteur interieur tension = depent de la température&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;entier, non signé, 4 bit, température exterieure&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;entier, non signé, 4 bit, température interieure&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;delta température = température max - température min&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;les capteurs sont lu toute les minutes //avec un delais de 1 minute&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<alternative text="&#34;(si la température exterieur est entre la tampérature maximum ou minimume du capteur exterieur)&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<alternative text="&#34;(si la température exterieure est inferieur à -10 degré)&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;l'alarme alumé&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;délais&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;l'alarme éteint&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+								<instruction text="&#34;délais&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+						<alternative text="&#34;(si la température exterieure est supérieure à 50 degré)&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;alarme activé sans clignotement&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+						<alternative text="&#34;(si la température interieur est entre la température maximume et minimume du capteur interieure)&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<alternative text="&#34;(si la température entre l'exterieur et l'interieur est superieur à 30 degré)&#34;" comment="" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;alarme activé sans clignotement&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse color="ffffff">
+									</qFalse>
+								</alternative>
+								<alternative text="&#34;(si la température interieur est inferieur à 18 degré et que la différance de température entre l'exterieur et interieur est plus grande que 10 degré)&#34;" comment="" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;chauffage activé&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse color="ffffff">
+									</qFalse>
+								</alternative>
+								<alternative text="&#34;(si la température interieur est supérieur à 25 degré et que la différance de température entre l'exterieur et interieur est plus grande que 5 degré)&#34;" comment="" color="ffffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;ventilation activé&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse color="ffffff">
+									</qFalse>
+								</alternative>
+							</qTrue>
+							<qFalse color="ffffff">
+							</qFalse>
+						</alternative>
+					</qTrue>
+					<qFalse color="ffffff">
+					</qFalse>
+				</alternative>
+			</qForever>
+		</forever>
+	</children>
+</root>
