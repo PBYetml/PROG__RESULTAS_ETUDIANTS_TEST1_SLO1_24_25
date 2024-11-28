@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-10" preRepeat="jusqu'à " postFor="à" preReturn="return" postForIn="in" preWhile="tant que " output="écrire" input="lire" preFor="pour " preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="???" created="2024-11-14" changedby="diesavary" changed="2024-11-16" origin="Structorizer &#60; 3.23-12 (legacy NSD file)" text="&#34;Description: Correction de la question 3 du 1er test de programmation de l'ETML-ES&#34;,&#34;Defenition&#34;,&#34;150_Ext = 0.5      |  25_Ext = 1.75   | -50_Ext = 2.5&#34;,&#34;125_Ext = 0.75     |  10_Ext = 1.95&#34;,&#34;100_Ext = 1        |  0_Ext = 2.1&#34;,&#34;75_Ext = 1.25      |  -10_Ext = 2.2&#34;,&#34;50_Ext = 1.55      |  -25_Ext = 2.3&#34;,&#34;&#34;,&#34;constante:&#34;,&#34;Temp_Ext_Max = 2.2            |    Temp_Int_Min  =  18&#34;,&#34;Temp_Ext_Min = 1.55           |    Temp_Int_Max  =  25&#34;,&#34;&#34;,&#34;Variable locale:&#34;,&#34;Temp_Ext (réel, 4 byte)      |      Chauffage (entier, 1 byte)&#34;,&#34;Temp_Int (réel, 4 byte)        |       Ventilation (entier, 1 byte)&#34;,&#34;Alarme (entier, 1 byte)        |       Time (entier, 1 byte)&#34;,&#34;Temp_EXT (réel, 4 byte)      |        Temp_INT (réel, 4 byte)&#34;,&#34;Diego Savary&#34;,&#34;14.11.2024&#34;" comment="&#34;&#34;" color="ffffff" type="program" style="nice">
+	<children>
+		<forever comment="" color="ffccff" disabled="0">
+			<qForever>
+				<instruction text="&#34;Lecture du capteur de temperature 1 dans la variable Temp_Ext&#34;" comment="" color="c0c0c0" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;Lecture du capteur de temperature 2 dans la variable Temp_Int&#34;" comment="" color="c0c0c0" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;converstion analogique à digital de Temp_Ext&#34;" comment="&#34;&#34;" color="c0c0c0" rotated="0" disabled="0"></instruction>
+				<repeat text="&#34;FAIRE TANT QUE (Time != 60)&#34;" comment="" color="ffccff" disabled="0">
+					<qRepeat>
+						<instruction text="&#34;incrémentation de la variable Time&#34;" comment="" color="cccccc" rotated="0" disabled="0"></instruction>
+						<alternative text="&#34;SI(Temp_Ext &#62; Temp_Ext_Min)&#34;" comment="" color="ccffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;Clignotter alarme&#34;" comment="" color="ffffcc" rotated="0" disabled="0"></instruction>
+								<instruction text="" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<alternative text="&#34;SI (Temp_Ext &#62; Temp_Ext_Max)&#34;" comment="" color="ccffff" disabled="0">
+									<qTrue>
+										<instruction text="&#34;Allumer alarme&#34;" comment="" color="ffffcc" rotated="0" disabled="0"></instruction>
+										<instruction text="" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+									</qTrue>
+									<qFalse>
+										<alternative text="&#34;SI(((Temp_Ext - Temp_Int) OU (Temp_Int - Temp_Ext) &#60;= 30) OU&#34;,&#34; ((Temp_Ext + Temp_Int) OU (Temp_Int + Temp_Ext) &#60;= 30))&#34;" comment="" color="ccffff" disabled="0">
+											<qTrue>
+												<instruction text="&#34;eteindre Alarme&#34;" comment="" color="ffffcc" rotated="0" disabled="0"></instruction>
+											</qTrue>
+											<qFalse>
+												<instruction text="&#34;allumer alarme&#34;" comment="" color="ffffcc" rotated="0" disabled="0"></instruction>
+											</qFalse>
+										</alternative>
+									</qFalse>
+								</alternative>
+							</qFalse>
+						</alternative>
+						<alternative text="&#34;SI (Temp_Int &#60; Temp_Int_Min) ET &#34;" comment="&#34;&#34;" color="ccffff" disabled="0">
+							<qTrue>
+								<instruction text="&#34;Enclanchement de Chauffage&#34;" comment="&#34;&#34;" color="ffffcc" rotated="0" disabled="0"></instruction>
+							</qTrue>
+							<qFalse>
+								<instruction text="&#34;Eteindre Chauffage&#34;" comment="&#34;&#34;" color="ffffcc" rotated="0" disabled="0"></instruction>
+							</qFalse>
+						</alternative>
+					</qRepeat>
+				</repeat>
+			</qForever>
+		</forever>
+	</children>
+</root>
