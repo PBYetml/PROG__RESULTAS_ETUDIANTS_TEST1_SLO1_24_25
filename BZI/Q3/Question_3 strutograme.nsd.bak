@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="mohzitouni" created="2024-11-20" changedby="mohzitouni" changed="2024-11-20" origin="Structorizer 3.30-10" text="&#34;Question 3&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<while text="&#34;chaque minute&#34;" comment="" color="ffffff" disabled="0">
+			<qWhile>
+				<instruction text="&#34;Initialiser les variables (température extérieure et intérieure)&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<call text="&#34;lecture des données ()&#34;" comment="" color="ffffff" disabled="0"></call>
+				<instruction text="&#34;Capteur extérieur 1 : convertir la tension en température -50 + la température = Temp_exterieur&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<instruction text="&#34;Capteur intérieur 2 : convertir la valeur numérique en température (datasheet)Temp_intérieur&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<case text="&#34;Condition pour l'alarme&#34;,&#34;Temp_extérieur &#60; -10°c&#34;,&#34;Temp_extérieur &#62; 50° c&#34;,&#34;Temp_intérieur - Temp_extérieur &#62; 30°C&#34;,&#34;Default &#34;" comment="" color="ffffff" disabled="0">
+					<qCase>
+						<instruction text="&#34;alarme clignote&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qCase>
+					<qCase>
+						<instruction text="&#34;alarme activé sans clignote&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qCase>
+					<qCase>
+						<instruction text="&#34;alarme activée sans clignotée&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qCase>
+					<qCase>
+						<instruction text="&#34;alarme éteinte&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qCase>
+				</case>
+				<alternative text="&#34;Si Temp_inférieur &#62; 25°c et Temp_intérieur-Temp_extérieur &#62; 10°&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;activer la ventilation&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;ventilation éteint&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+				<alternative text="&#34;Si Temp_intérieur &#60; 18 et Temp_intérieur - Temp_extérieur &#62; 10&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<instruction text="&#34;Chauffage enclencher&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qTrue>
+					<qFalse>
+						<instruction text="&#34;Chauffage déclencher&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+					</qFalse>
+				</alternative>
+			</qWhile>
+		</while>
+	</children>
+</root>
