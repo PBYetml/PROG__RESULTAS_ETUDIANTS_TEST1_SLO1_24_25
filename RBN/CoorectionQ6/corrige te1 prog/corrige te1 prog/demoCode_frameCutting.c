@@ -104,38 +104,15 @@ int AssembyDatas(int8_t voltageData, int8_t currentData, int8_t powerData, int8_
 ----------------------------------------------------------------------------------- */
 void DatasCutting(int frame)
 {
-
-	//-- display the different frame value --//
-	printf("-- valeur voltage :  \n", );
-	printf("-- valeur current : \n", );
-	printf("-- valeur power :  \n", );
-	printf("-- valeur resistor :  \n", );
-}
-
-#include <stdio.h>
-#include <stdint.h>
-
-// Définition de la fonction pour extraire les valeurs
-void extractValues(uint32_t frame) {
-	// Extraction de chaque information (en supposant que l'ordre est Tension, Courant, Puissance, Résistance)
+// Extraction de chaque information (en supposant que l'ordre est Tension, Courant, Puissance, Résistance)
 	uint8_t tension = (frame >> 24) & 0xFF;     // Extraction des 8 bits de poids fort
 	uint8_t courant = (frame >> 16) & 0xFF;     // Extraction du second octet
 	uint8_t puissance = (frame >> 8) & 0xFF;    // Extraction du troisième octet
 	uint8_t resistance = frame & 0xFF;          // Extraction des 8 bits de poids faible
 
-	// Affichage des résultats
-	printf("Tension: %u\n", tension);
-	printf("Courant: %u\n", courant);
-	printf("Puissance: %u\n", puissance);
-	printf("Résistance: %u\n", resistance);
-}
-
-int main() {
-	// Exemple de valeur de la trame (32 bits) pour tester la fonction
-	uint32_t frame = 0x12345678;  // Exemple de valeur en hexadécimal
-
-	// Appel de la fonction pour extraire et afficher les valeurs
-	extractValues(frame);
-
-	return 0;
+	//-- display the different frame value --//
+	printf("-- valeur voltage : %d \n", tension );
+	printf("-- valeur current : %d \n", courant );
+	printf("-- valeur power : %d \n", puissance );
+	printf("-- valeur resistor : %d  \n", resistance );
 }
