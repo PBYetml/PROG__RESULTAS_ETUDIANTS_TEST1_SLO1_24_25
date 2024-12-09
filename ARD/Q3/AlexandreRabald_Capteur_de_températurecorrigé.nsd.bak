@@ -11,7 +11,7 @@
 		<instruction text="&#34;valeurs réel, non signé, 4 bytes, capExteTensMax = température minimum&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 		<instruction text="&#34;valeur réel, non signé, 4 bytes, deltaTemp&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 		<instruction text="&#34;constante CAPEXTETWMPMIN = -50 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;constante CAPEXTETEMPMAX = 150 //degré&#34;" comment="" color="ff8080" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;constante CAPEXTETEMPMAX = 150 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 		<instruction text="&#34;constante CAPINTETEMPMIN = -55 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 		<instruction text="&#34;constante CAPINTETEMPMAX = 125 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 		<while text="&#34;while (chaque minute)&#34;" comment="" color="ffffff" disabled="0">
