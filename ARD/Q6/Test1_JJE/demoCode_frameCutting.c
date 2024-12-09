@@ -106,27 +106,25 @@ void DatasCutting(int frame)
 {
 	//variables des valeurs
 	int voltage, current, power, resistor;
-	//variables intermediaires
-	int ValTensionInter, ValCourantInter, ValPuissanceInter;
-	ValTensionInter = frame & 0b1111000000000000;
+	voltage = frame & 0xFF000000;
 	//on mask les bits que nous voulons, ici sera la valeur de la tension
-	voltage = ValTensionInter >> 12;
+	voltage = voltage >> 24;
 	//decalage de bit en direction du LSB
-	ValCourantInter = frame & 0b0000111100000000;
+	current = frame & 0x00FF0000;
 	//on mask les bits que nous voulons, ici sera la valeur de le courant
-	current = ValCourantInter >> 8;
+	current = current >> 16;
 	//decalage de bit en direction du LSB
-	ValPuissanceInter = frame & 0b0000000011110000;
+	power = frame & 0x0000FF00;
 	//on mask les bits que nous voulons, ici sera la valeur de la puissance
-	power = ValPuissanceInter >> 4;
+	power = power >> 8;
 	//decalage de bit en direction du LSB
-	resistor = frame & 0b0000000000001111;
+	resistor = frame & 0x000000FF;
 	//on mask les bits que nous voulons, ici sera la valeur de la résistance,notre valeur est deja au LSB donc nous n'avons pas a faire de decalage de bit
 
 
 	//-- display the different frame value --//
-	printf("-- valeur voltage :  \n", voltage);
-	printf("-- valeur current : \n", current);
-	printf("-- valeur power :  \n", power);
-	printf("-- valeur resistor :  \n", resistor);
+	printf("-- valeur voltage : %d \n", voltage);
+	printf("-- valeur current : %d \n", current);
+	printf("-- valeur power : %d \n", power);
+	printf("-- valeur resistor : %d \n", resistor);
 }
