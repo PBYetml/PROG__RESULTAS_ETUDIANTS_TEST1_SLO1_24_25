@@ -1,1 +1,10 @@
-﻿  Test1_JJE.vcxproj -> C:\AlexandreRabaldProgramation\EMSY\NOTE_1\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\correction_ARD\Test1_ARB\Q6\x64\Debug\Test1_JJE.exe
+﻿  demoCode_frameCutting.c
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(128,36): warning C4474: 'printf' : trop d'arguments passés pour la chaîne de format
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(128,36): message : les espaces réservés et leurs paramètres attendent des arguments 0 variadiques, mais des arguments 1 ont été fournis
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(129,35): warning C4474: 'printf' : trop d'arguments passés pour la chaîne de format
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(129,35): message : les espaces réservés et leurs paramètres attendent des arguments 0 variadiques, mais des arguments 1 ont été fournis
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(130,34): warning C4474: 'printf' : trop d'arguments passés pour la chaîne de format
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(130,34): message : les espaces réservés et leurs paramètres attendent des arguments 0 variadiques, mais des arguments 1 ont été fournis
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(131,37): warning C4474: 'printf' : trop d'arguments passés pour la chaîne de format
+C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\Test1_JJE\demoCode_frameCutting.c(131,37): message : les espaces réservés et leurs paramètres attendent des arguments 0 variadiques, mais des arguments 1 ont été fournis
+  Test1_JJE.vcxproj -> C:\AlexandreRabaldProgramation\PROG__RESULTAS_ETUDIANTS_TEST1_SLO1_24_25\ARD\Q6\x64\Debug\Test1_JJE.exe

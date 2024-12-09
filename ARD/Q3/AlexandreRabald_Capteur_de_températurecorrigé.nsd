@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="alerabald" created="2024-10-31" changedby="alerabald" changed="2024-11-28" origin="Structorizer 3.30-10" text="&#34;Capteur de température&#34;" comment="" color="ffffff" type="program" style="nice">
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="alerabald" created="2024-10-31" changedby="alerabald" changed="2024-12-06" origin="Structorizer 3.30-10" text="&#34;Capteur de température&#34;" comment="" color="ffffff" type="program" style="nice">
 	<children>
-		<instruction text="&#34;valeur réel, non signé, 4 bytes, tempInte&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;valeur réel, non signé, 4 bytes, tempExte&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;valeur réel, non signé, 4 bytes, capInteTens = depent de la température&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;valeur réel, non signé, 4 bytes, capExteTens = depent de la température //la tension est linéaire entre le maximume et le minimume et si elle est à tension maximum (2.5) = température minimum et si elle a tension minimume (0.5V) = température maximume&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;valeurs réel, non signé, 4 bytes, capExteTensMax = température minimum&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;valeur réel, non signé, 4 bytes, deltaTemp&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;constante capExteTempMin = -50 degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;constante capExteTempMax = 150 degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;constante capInteTempMin = -55 degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-		<instruction text="&#34;constante capInteTempMax = 125 degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, tempInte&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, tempExte&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, alarme = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, ventilation = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, chauffage = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, capInteTens = depent de la température&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, capExteTens = depent de la température //la tension est linéaire entre le maximume et le minimume et si elle est à tension maximum (2.5) = température minimum et si elle a tension minimume (0.5V) = température maximume&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeurs réel, non signé, 4 bytes, capExteTensMax = température minimum&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valeur réel, non signé, 4 bytes, deltaTemp&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;constante CAPEXTETWMPMIN = -50 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;constante CAPEXTETEMPMAX = 150 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;constante CAPINTETEMPMIN = -55 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;constante CAPINTETEMPMAX = 125 //degré&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 		<while text="&#34;while (chaque minute)&#34;" comment="" color="ffffff" disabled="0">
 			<qWhile>
-				<call text="&#34;cptTempExt = lectureData()&#34;" comment="&#34;&#34;" color="ffffff" disabled="0"></call>
-				<instruction text="&#34;deltaTemp = tempMax - tempMin&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-				<alternative text="&#34;(si la tempExte est inferieur à -10 degré)&#34;" comment="" color="ffffff" disabled="0">
+				<call text="&#34;capTempExte = lectureData()&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;capTempInte = lectureData()&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;tempInte convTempBin(capteur 2)&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;tempExte convVoltTemp(capteur 1)&#34;" comment="" color="ffffff" disabled="0"></call>
+				<instruction text="&#34;deltaTemp = tempMax - tempMin&#34;" comment="&#34;&#34;" color="ffffff" rotated="0" disabled="0"></instruction>
+				<alternative text="&#34;(si tempExte &#60; -10)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
 					<qTrue>
-						<instruction text="&#34;l'alarme = 1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-						<instruction text="&#34;délais&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-						<instruction text="&#34;l'alarme = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
-						<instruction text="&#34;délais&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+						<call text="&#34;appelle la fonction clignotement&#34;" comment="" color="ffffff" disabled="0"></call>
 					</qTrue>
 					<qFalse>
 						<instruction text="&#34;l'alarme = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 					</qFalse>
 				</alternative>
-				<alternative text="&#34;(si tempInte est supérieur à 25 degré et que la différance entre tempExte et tempInte est plus grande que 5 degré)&#34;" comment="" color="ffffff" disabled="0">
+				<alternative text="&#34;((si tempInte &#62; 25) &amp; (deltaTemp &#62; que 5))&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
 					<qTrue>
 						<instruction text="&#34;ventilation = 1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 					</qTrue>
@@ -34,7 +37,7 @@
 						<instruction text="&#34;ventilation = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 					</qFalse>
 				</alternative>
-				<alternative text="&#34;(si tempInte est inferieur à 18 degré et que la différance entre tempExte et tempInte est plus grande que 10 degré)&#34;" comment="" color="ffffff" disabled="0">
+				<alternative text="&#34;((si tempInte &#60; 18) &amp; (deltaTemp &#62; 10))&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
 					<qTrue>
 						<instruction text="&#34;chauffage = 1&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 					</qTrue>
@@ -42,7 +45,7 @@
 						<instruction text="&#34;chauffage = 0&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 					</qFalse>
 				</alternative>
-				<alternative text="&#34;(si tempExte et tempInte est superieur à 30 degré ou si tempExte est supérieure à 50 degré)&#34;" comment="" color="ffffff" disabled="0">
+				<alternative text="&#34;si(((tempExte &#62; 30) &amp; (tempInte &#62; 30)) | (tempExte &#62; 50))&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
 					<qTrue>
 						<instruction text="&#34;alarme = 1 //sans clignotement&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
 					</qTrue>
