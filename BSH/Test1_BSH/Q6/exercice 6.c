@@ -1,4 +1,19 @@
+/*---------------------------------------------------------------------------------- -//
+// File Name 			: exercice 6.c
+//
+// Author 				: Benjamin Schafroth
+//
+// Version				: 0.1
+//
+// Description          : dcorrig√© ex 6 test 
+//						 
+// Remarks				: 
+//----------------------------------------------------------------------------------*/
+
+//-- standart libraries --// 
 #include <stdint.h>
+
+//-- main programme -> entry point of the programm --//
 
 int main() {
 	
@@ -6,23 +21,25 @@ int main() {
 	
 	int valeur_tension_intermediere, valeur_courant_intermediere, valeur_puissance_intermediere;
 
-	uint32_t frame = 0b1111010110101010;
+	uint32_t frame = 0b11111111000000001111111100000000;
 
-	valeur_tension_intermediere = frame & 0b1111000000000000;
+	valeur_tension_intermediere = frame & 0b11111111000000000000000000000000;
 	// on isole les bits qui nous interesse (dans ce cas pour la valeur de la tension)
-	valeur_tension = valeur_tension_intermediere >> 12;
-	//etant donnÈ que nous avons une valeur beaucoup trop haute nous devons decaler la valeur en direction du LSB
+	valeur_tension = valeur_tension_intermediere >> 24; // le 24 signifie le nombre de decalage a faire dans ce cas nous en faisons 24
+	//etant donn√© que nous avons une valeur beaucoup trop haute nous devons decaler la valeur en direction du LSB
 
-	valeur_courant_intermediere = frame & 0b0000111100000000;
+	valeur_courant_intermediere = frame & 0b00000000111111110000000000000000;
 	// on isole les bits qui nous interesse (dans ce cas pour la valeur de la tension)
-	valeur_courant = valeur_courant_intermediere >> 8;
-	//etant donnÈ que nous avons une valeur beaucoup trop haute nous devons decaler la valeur en direction du LSB
+	valeur_courant = valeur_courant_intermediere >> 16;
+	//etant donn√© que nous avons une valeur beaucoup trop haute nous devons decaler la valeur en direction du LSB
 
-	valeur_puissance_intermediere = frame & 0b0000000011110000;
+	valeur_puissance_intermediere = frame & 0b00000000000000001111111100000000;
 	// on isole les bits qui nous interesse (dans ce cas pour la valeur de la tension)
-	valeur_puissance = valeur_puissance_intermediere >> 4;
-	//etant donnÈ que nous avons une valeur beaucoup trop haute nous devons decaler la valeur en direction du LSB
+	valeur_puissance = valeur_puissance_intermediere >> 8;
+	//etant donn√© que nous avons une valeur beaucoup trop haute nous devons decaler la valeur en direction du LSB
 
-	valeur_resistance = frame & 0b0000000000001111;
-	// on isole les bits qui nous interesse (dans ce cas pour la valeur de la resistance) et etant donnÈ que nous sommes deja au LSB nous n'avons pas a faire de decalage
+	valeur_resistance = frame & 0b00000000000000000000000011111111;
+	// on isole les bits qui nous interesse (dans ce cas pour la valeur de la resistance) et etant donn√© que nous sommes deja au LSB nous n'avons pas a faire de decalage
 }
+
+
