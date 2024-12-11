@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="mohzitouni" created="2024-11-22" changedby="mohzitouni" changed="2024-11-22" origin="Structorizer 3.30-10" text="&#34;???&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;capteur_1 réel taille 4bytes&#34;,&#34;capteur_2 réel taille 4bytes&#34;,&#34;temp_ext réel taille 4 bytes&#34;,&#34;temps_int réeel taille 4 bytes&#34;,&#34;detla_temp réeel taille 4 bytes&#34;,&#34;mode_alarme entier taille 4 bytes&#34;,&#34;ventilatiom entier 1 bytes&#34;,&#34;chauffage entier 1 bytes&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;enum mode = ON OFF CLIGNOTEMENT&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;constante TEMP_MIN_EXT = -10&#34;,&#34;constante TEMP_MAX_EXT = 50&#34;,&#34;constante DELTA_MAX = 30&#34;,&#34;constante DELTA_MIN = 5&#34;,&#34;constante DELTA_MID = 10&#34;,&#34;constante TEMP_MIN_INT = 18&#34;,&#34;constante TEMP_MAX_INT = 25&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<while text="&#34;Chaque minute&#34;" comment="" color="ffffff" disabled="0">
+			<qWhile>
+				<call text="&#34;capteur_1 = LectureCpt()&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;capteur_2 = LectureCpt()&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;temp_ext = convVolatageTemp(capteur_1)&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;temp_int = convBinTemp(capteur_2)&#34;" comment="" color="ffffff" disabled="0"></call>
+				<instruction text="&#34;delta_temp = temp_ext - temp_int&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<alternative text="&#34;if temp_ext &#60; TEMP_MIN_EXT &#34;" comment="" color="ffffff" disabled="0">
+					<qTrue>
+						<call text="&#34;mode_alarme = ActivationAlarm(CLIGNOTEMENT)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0"></call>
+					</qTrue>
+					<qFalse>
+						<call text="&#34;mode_alarme=ActivationAlarm(OFF)&#34;" comment="" color="ffffff" disabled="0"></call>
+						<alternative text="&#34;else temp_ext &#62; TEMP_EXT_MAX ou delta_temp &#62; DELTA_MAX&#34;" comment="" color="ffffff" disabled="0">
+							<qTrue>
+								<call text="&#34;mode_alarme = ActivationAlarme(ON)&#34;" comment="" color="ffffff" disabled="0"></call>
+							</qTrue>
+							<qFalse>
+								<call text="&#34;mode_alarme = ActivationAlarm(OFF)&#34;" comment="" color="ffffff" disabled="0"></call>
+							</qFalse>
+						</alternative>
+					</qFalse>
+				</alternative>
+				<alternative text="&#34;if temp_int &#60; TEMP_MIN_INT et temp_int &#60; DELTA_MID et temp_ext&#60;temp_int&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qTrue>
+						<call text="&#34;chauffage = Activationchauffage(ON)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0"></call>
+					</qTrue>
+					<qFalse>
+						<call text="&#34;chauffage = Activationchauffage(OFF)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0"></call>
+					</qFalse>
+				</alternative>
+				<alternative text="&#34;if temp_int &#62; TEMP_INT_MAX et delta_temp &#62; DELTA_MIN et temp_ext&#62;temp_int&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+					<qTrue>
+						<call text="&#34;ventilation = ActivationVentilation(ON)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0"></call>
+					</qTrue>
+					<qFalse>
+						<call text="&#34;ventilation = ActivationVentilation(OFF)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0"></call>
+					</qFalse>
+				</alternative>
+			</qWhile>
+		</while>
+	</children>
+</root>
