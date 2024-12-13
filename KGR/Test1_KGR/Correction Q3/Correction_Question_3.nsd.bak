@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root xmlns:nsd="https://structorizer.fisch.lu" version="3.30-10" preRepeat="until " postFor="to" preReturn="return" postForIn="in" preWhile="while " output="OUTPUT" input="INPUT" preFor="for" preExit="exit" preLeave="leave" ignoreCase="true" preThrow="throw" preForIn="foreach" stepFor="by" author="kirgruber" created="2024-11-14" changedby="kirgruber" changed="2024-11-18" origin="Structorizer 3.30-10" text="&#34;Correction Question 3&#34;" comment="" color="ffffff" type="program" style="nice">
+	<children>
+		<instruction text="&#34;Constante TEMP_EXT_MAX = 50 -&#62; Entier 1 Octet non signé&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;Constante TEMP_EXT_MIN = -10 -&#62; Entier 1 Octet signé&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;Constante D_TEMP_MAX = 30 -&#62; Entier 1 Octet non signé&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;Constante D_TEMP_MOY = 10 -&#62; Entier 1 Octet non signé&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;Constante D_TEMP_MIN = 5 -&#62; Entier 1 Octet non signé&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valCapteur1 = 0 -&#62; Réel 4 Octets&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;valCapteur2 = 0 Réel 4 Octets&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;tempExt = 0 -&#62; Réel 4 Octets&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;tempInt = 0 -&#62; Réel 4 Octets&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<instruction text="&#34;dTemp = 0 -&#62; Réel 4 Octets&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+		<while text="&#34;FAIRE toutes les 60 secondes&#34;" comment="&#34;&#34;" color="ffffff" disabled="0">
+			<qWhile>
+				<call text="&#34;valCapteur1 = lectureCapteur1()&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;valCapteur2 = lectureCapteur2()&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;tempExt = convTensionDegre(valCapteur1)&#34;" comment="" color="ffffff" disabled="0"></call>
+				<call text="&#34;tempInt = convBinDegre(valCapteur2)&#34;" comment="" color="ffffff" disabled="0"></call>
+				<instruction text="&#34;dTemp = degint - degrExt      A REFAIRE&#34;" comment="" color="ffffff" rotated="0" disabled="0"></instruction>
+				<call text="&#34;dTemp = ABS(dTemp)&#34;" comment="&#34;&#34;" color="ffffff" disabled="0"></call>
+				<alternative text="&#34;(?)&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue color="ffffff">
+					</qTrue>
+					<qFalse color="ffffff">
+					</qFalse>
+				</alternative>
+				<alternative text="&#34;(?)&#34;" comment="" color="ffffff" disabled="0">
+					<qTrue color="ffffff">
+					</qTrue>
+					<qFalse color="ffffff">
+					</qFalse>
+				</alternative>
+			</qWhile>
+		</while>
+	</children>
+</root>
